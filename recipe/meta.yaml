@@ -20,10 +20,11 @@ requirements:
     - pip
     - wheel
   run:
-    - absl-py
-    - numpy >=1.17
     - python
+    - numpy >=1.20
     - opt_einsum
+    - scipy >=1.5
+    - typing_extensions
     # Not declared in the metadata but essential to this package.
     - jaxlib
 
