@@ -26,7 +26,8 @@ requirements:
     - scipy >=1.5
     - typing_extensions
     # Not declared in the metadata but essential to this package.
-    - jaxlib
+    # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
+    - jaxlib >=0.3.22
 
 test:
   imports:
