@@ -11,17 +11,18 @@ source:
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<37]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - wheel
   run:
-    - python >=3.6
     - absl-py
     - numpy >=1.17
+    - python
     - opt_einsum
     # Not declared in the metadata but essential to this package.
     - jaxlib
