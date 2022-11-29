@@ -19,6 +19,7 @@ requirements:
     - python
     - pip
     - wheel
+    - setuptools
   run:
     - python
     - numpy >=1.21,<2  # [py>=310 or (osx and arm64)]
