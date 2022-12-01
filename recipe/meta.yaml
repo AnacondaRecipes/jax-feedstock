@@ -1,29 +1,36 @@
-{% set version = "0.2.21" %}
+{% set name = "jax" %}
+{% set version = "0.3.25" %}
 
 package:
-  name: jax
+  name: {{name}}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jax/jax-{{ version }}.tar.gz
-  sha256: 7c760468ecb07b0a91144c8edddfcb04692cbeced2b56eede6dd6c7aa968c823
+  url: https://pypi.io/packages/source/j/{{name}}/{{name}}-{{ version }}.tar.gz
+  sha256: 18bea69321cb95ea5ea913adfe5e2c1d453cade9d4cfd0dc814ecba9fc0cb6e3
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  # Matches jaxlib-feedstock's compatibility
+  skip: true  # [ppc64le or s390x or win or py<37]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - wheel
+    - setuptools
   run:
-    - python >=3.6
-    - absl-py
-    - numpy >=1.17
+    - python
+    - numpy >=1.21,<2  # [py>=310 or (osx and arm64)]
+    - numpy >=1.20,<2  # [py<310 and not (osx and arm64)]
     - opt_einsum
+    - scipy >=1.5
+    - typing_extensions
     # Not declared in the metadata but essential to this package.
-    - jaxlib
+    # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
+    - jaxlib >=0.3.22
 
 test:
   imports:
@@ -40,8 +47,15 @@ about:
   license_family: APACHE
   license_file: LICENSE
   summary: Differentiate, compile, and transform Numpy code
+  description: |
+    JAX is Autograd and XLA, brought together for high-performance numerical computing and machine learning research. It provides composable transformations of Python+NumPy programs: differentiate, vectorize, parallelize, Just-In-Time compile to GPU/TPU, and more.
+  dev_url: https://github.com/google/jax
+  doc_url: https://jax.readthedocs.io/
 
 extra:
   recipe-maintainers:
     - ocefpaf
     - ericmjl
+  skip-lints:
+    - missing_license_url
+    - missing_doc_source_url
