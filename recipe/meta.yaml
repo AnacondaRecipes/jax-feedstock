@@ -23,14 +23,14 @@ requirements:
     - setuptools
   run:
     - python
-    - numpy >=1.21,<2  # [py>=310 or (osx and arm64)]
-    - numpy >=1.20,<2  # [py<310 and not (osx and arm64)]
+    - numpy >=1.22
     - opt_einsum
-    - scipy >=1.5
+    - scipy >=1.7
     - typing_extensions
     # Not declared in the metadata but essential to this package.
     # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
-    - jaxlib >=0.3.22
+    - jaxlib >=0.4.14
+    - importlib_metadata  # [py<310]
 
 test:
   imports:
