@@ -30,7 +30,8 @@ requirements:
     # Not declared in the metadata but essential to this package.
     # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
     - jaxlib >=0.4.14
-    - importlib_metadata  # [py<310]
+    - importlib_metadata >=4.6  # [py<310]
+    - ml-dtypes >=0.2.0
 
 test:
   imports:
