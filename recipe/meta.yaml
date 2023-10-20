@@ -31,7 +31,7 @@ requirements:
     # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
     - jaxlib >=0.4.14
     - importlib_metadata >=4.6  # [py<310]
-    - ml-dtypes >=0.2.0
+    - ml_dtypes >=0.2.0
 
 test:
   imports:
