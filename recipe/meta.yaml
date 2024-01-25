@@ -24,8 +24,8 @@ requirements:
   run:
     - python
     - numpy >=1.22    # [py<311]
-    - numpy >-1.23.2 # [py==311]
-    - numpy >-1.26.0 # [py>=312]
+    - numpy >=1.23.2  # [py==311]
+    - numpy >=1.26.0  # [py>=312]
     - opt_einsum
     - scipy >=1.9  # [py<312]
     - scipy >=1.11.1  # [py>=312]
