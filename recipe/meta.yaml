@@ -34,6 +34,8 @@ requirements:
     - jaxlib >=0.4.19
     - importlib_metadata >=4.6  # [py<310]
     - ml_dtypes >=0.2.0
+  run_constrained:
+    - protobuf >=3.13,<4
 
 test:
   imports:
