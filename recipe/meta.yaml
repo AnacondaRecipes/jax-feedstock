@@ -10,9 +10,9 @@ source:
   sha256: 2a229a5a758d1b803891b2eaed329723f6b15b4258b14dc0ccb1498c84963685
 
 build:
-  number: 0
+  number: 1
   # Matches jaxlib-feedstock's compatibility
-  skip: true  # [s390x or win or py<39]
+  skip: true  # [s390x or py<39]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
