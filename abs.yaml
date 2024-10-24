@@ -1,5 +1,0 @@
-aggregate_branch: 3.12
-
-# Temporary, to be removed before merging. 
-channels:
-  - https://staging.continuum.io/prefect/fs/jaxlib-feedstock/pr8/a1916ca
