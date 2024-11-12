@@ -1,5 +1,5 @@
 {% set name = "jax" %}
-{% set version = "0.4.23" %}
+{% set version = "0.4.25" %}
 
 package:
   name: {{name}}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/{{name}}/{{name}}-{{ version }}.tar.gz
-  sha256: 2a229a5a758d1b803891b2eaed329723f6b15b4258b14dc0ccb1498c84963685
+  sha256: a8ee189c782de2b7b2ffb64a8916da380b882a617e2769aa429b71d79747b982
 
 build:
   number: 1
@@ -55,7 +55,7 @@ about:
   description: |
     JAX is Autograd and XLA, brought together for high-performance numerical computing and machine learning research. It provides composable transformations of Python+NumPy programs: differentiate, vectorize, parallelize, Just-In-Time compile to GPU/TPU, and more.
   dev_url: https://github.com/google/jax
-  doc_url: https://jax.readthedocs.io/
+  doc_url: https://github.com/jax-ml/jax/blob/main/README.md
 
 extra:
   recipe-maintainers:
