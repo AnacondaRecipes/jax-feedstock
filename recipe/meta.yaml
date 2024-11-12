@@ -30,7 +30,7 @@ requirements:
     - scipy >=1.9  # [py<312]
     - scipy >=1.11.1  # [py>=312]
     # Not declared in the metadata but essential to this package.
-    # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
+    # Update minimum from https://github.com/jax-ml/jax/blob/jaxlib-v0.4.25/jax/version.py#L142
     - jaxlib >=0.4.20
     - importlib_metadata >=4.6  # [py<310]
     - ml_dtypes >=0.2.0
