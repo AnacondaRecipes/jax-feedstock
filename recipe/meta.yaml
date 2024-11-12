@@ -1,5 +1,5 @@
 {% set name = "jax" %}
-{% set version = "0.4.23" %}
+{% set version = "0.4.35" %}
 
 package:
   name: {{name}}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/{{name}}/{{name}}-{{ version }}.tar.gz
-  sha256: 2a229a5a758d1b803891b2eaed329723f6b15b4258b14dc0ccb1498c84963685
+  sha256: c0c986993026b10bf6f607fecb7417377460254640766ce40f1fef3fd139c12e
 
 build:
   number: 1
@@ -23,17 +23,15 @@ requirements:
     - setuptools
   run:
     - python
-    - numpy >=1.22    # [py<311]
-    - numpy >=1.23.2  # [py==311]
+    - numpy >=1.24    # [py<312]
     - numpy >=1.26.0  # [py>=312]
     - opt_einsum
-    - scipy >=1.9  # [py<312]
+    - scipy >=1.10  # [py<312]
     - scipy >=1.11.1  # [py>=312]
+    - jaxlib {{version}}
     # Not declared in the metadata but essential to this package.
-    # Update minimum from https://github.com/google/jax/blob/jaxlib-v0.3.25/jax/version.py
-    - jaxlib >=0.4.19
     - importlib_metadata >=4.6  # [py<310]
-    - ml_dtypes >=0.2.0
+    - ml_dtypes >=0.4.0
   run_constrained:
     - protobuf >=3.13,<4
 
