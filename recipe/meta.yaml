@@ -32,8 +32,6 @@ requirements:
     # Not declared in the metadata but essential to this package.
     - importlib_metadata >=4.6  # [py<310]
     - ml_dtypes >=0.4.0
-  run_constrained:
-    - protobuf >=3.13,<4
 
 test:
   imports:
