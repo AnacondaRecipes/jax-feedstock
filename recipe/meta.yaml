@@ -1,18 +1,17 @@
 {% set name = "jax" %}
-{% set version = "0.4.35" %}
+{% set version = "0.7.2" %}
 
 package:
   name: {{name}}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/{{name}}/{{name}}-{{ version }}.tar.gz
-  sha256: c0c986993026b10bf6f607fecb7417377460254640766ce40f1fef3fd139c12e
+  url: https://pypi.org/packages/source/j/jax/jax-{{ version }}.tar.gz
+  sha256: 71a42b964bc6d52e819311429e6c0f5742e2a4650226dab1a1dd26fd986ca70d
 
 build:
   number: 0
-  # Matches jaxlib-feedstock's compatibility
-  skip: true  # [s390x or py<310]
+  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -23,24 +22,24 @@ requirements:
     - setuptools
   run:
     - python
-    - numpy >=1.24    # [py<312]
-    - numpy >=1.26.0  # [py>=312]
+    - numpy >=2.0
     - opt_einsum
-    - scipy >=1.10  # [py<312]
-    - scipy >=1.11.1  # [py>=312]
-    - jaxlib {{version}}
-    # Not declared in the metadata but essential to this package.
-    - importlib_metadata >=4.6  # [py<310]
-    - ml_dtypes >=0.4.0
+    - scipy >=1.13
+    - importlib_metadata >=4.6
+    - ml_dtypes >=0.5.0
+    - jaxlib {{ version }}
+  run_constrained:
+    # Change to nvidia-cudnn-* in https://github.com/jax-ml/jax/blob/main/jax_plugins/cuda/plugin_setup.py
+    - cudnn >=9.8,<10.0
 
 test:
+  requires:
+    - pip
   imports:
     - jax
     - jax._src
   commands:
     - pip check
-  requires:
-    - pip
 
 about:
   home: https://github.com/google/jax
@@ -49,9 +48,10 @@ about:
   license_file: LICENSE
   summary: Differentiate, compile, and transform Numpy code
   description: |
-    JAX is Autograd and XLA, brought together for high-performance numerical computing and machine learning research. It provides composable transformations of Python+NumPy programs: differentiate, vectorize, parallelize, Just-In-Time compile to GPU/TPU, and more.
+    JAX is Autograd and XLA, brought together for high-performance numerical computing and machine learning research.
+    It provides composable transformations of Python+NumPy programs: differentiate, vectorize, parallelize, Just-In-Time compile to GPU/TPU, and more.
   dev_url: https://github.com/google/jax
-  doc_url: https://jax.readthedocs.io/
+  doc_url: https://jax.readthedocs.io
 
 extra:
   recipe-maintainers:
