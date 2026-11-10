@@ -1,5 +1,5 @@
 {% set name = "jax" %}
-{% set version = "0.11.0" %}
+{% set version = "0.12.0.1" %}
 
 package:
   name: {{name}}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/j/jax/jax-{{ version }}.tar.gz
-  sha256: a2feb7cfa48bb35d36b8ecec16a4ec24044dec01935f779b28b017213697b195
+  sha256: f543fb1151c351d328b7dd9e40865c01bf9ae10cdf7e21637196172891d51914
 
 build:
   number: 0
@@ -22,20 +22,20 @@ requirements:
     - setuptools
   run:
     - python
-    - numpy >=2.1
+    - numpy >=2.2
     - opt_einsum
     - scipy >=1.15
     - ml_dtypes >=0.5.0
-    - jaxlib >=0.11.0,<=0.11.0
+    - jaxlib >=0.11.2,<=0.12.0.1
   run_constrained:
     # Change to nvidia-cudnn-* in https://github.com/jax-ml/jax/blob/main/jax_plugins/cuda/plugin_setup.py
     - cudnn >=9.8,<10.0
-    - jaxlib ==0.11.0
-    - jax-cuda12-plugin >=0.11.0,<=0.11.0
-    - jax-cuda13-plugin >=0.11.0,<=0.11.0
-    - jax-oneapi-plugin >=0.11.0,<=0.11.0
-    - jax-rocm7-plugin ==0.11.0.*
-    - libtpu ==0.0.44.*
+    - jaxlib >=0.12.0.1,<=0.12.0.1
+    - jax-cuda12-plugin >=0.12.0.1,<=0.12.0.1
+    - jax-cuda13-plugin >=0.12.0.1,<=0.12.0.1
+    - jax-oneapi-plugin >=0.12.0.1,<=0.12.0.1
+    - jax-rocm7-plugin ==0.12.0.1.*
+    - libtpu ==0.0.50.*
 
 test:
   requires:
